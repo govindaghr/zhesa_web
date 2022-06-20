@@ -33,7 +33,7 @@ DEBUG = True
 #now set back debug to true
 
 
-ALLOWED_HOSTS = ['127.0.0.1', 'zhebsa.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'zhesa.herokuapp.com']
 
 
 # Application definition
