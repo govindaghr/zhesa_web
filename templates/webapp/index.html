@@ -1,0 +1,156 @@
+{% extends '../partials/base.html' %} {% load static %} {% block content %}
+
+<div class="row">
+    <!-- <div class="col-md-3"></div> -->
+    <div class="col-md-6 mx-auto">
+        <form class="form-inline my-5 mx-auto">
+            <!-- {% csrf_token %} -->
+            <div class="input-group mb-3">
+                <input type="text" name="searchQuery" value="{{q}}" class="form-control" placeholder="འཚོལ།/Search" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <button type="submit" class="btn btn-warning">
+                    <img src='{% static "images/search.svg" %}'>                            
+                </button>
+            </div>
+        </form>
+
+    </div>
+    <!-- <div class="col-md-3"></div>               -->
+</div>
+{% if search %}
+<!-- {{search}} -->
+{% for search in search %}
+<!-- {{search.phelkay__phelkay_word}} -->
+<div class="row mt-5">
+    <div class="col-md-8 mx-auto mt-auto">
+        <div class="card shadow">
+            <div class="card-header">
+                <h1 class="card-title text-center">
+                    {{search.zhebsa_word}}
+                </h1>
+            </div>
+            <div class="card-body">
+                <div class="container mx-auto">
+                    <div class="input-group">
+                        <h4>ཕལ་སྐད། (Dzongkha): &nbsp;</h4>
+                        <span style="font-size: medium;"> {{search.phelkay__phelkay_word}} </span>
+                    </div>
+                    {% if search.phelkay__p_phrase %}
+                    <hr>
+                    <div class="input-group">
+                        <h4>རྗོད་ཚིག (Phrases): &nbsp;</h4>
+                        <span style="font-size: medium;"> {{ search.phelkay__p_phrase}} </span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %} {% endif %} {% if search_zhesa %}
+<!-- {{search}} -->
+{% for search_zhesa in search_zhesa %}
+<!-- {{search.phelkay__phelkay_word}} -->
+<div class="row mt-5">
+    <div class="col-md-8 mx-auto mt-auto">
+        <div class="card shadow">
+            <div class="card-header">
+                <h1 class="card-title text-center">
+                    {{search_zhesa.phelkay__phelkay_word}}
+                </h1>
+            </div>
+            <div class="card-body">
+                <div class="container mx-auto">
+                    <div class="input-group">
+                        <h4>ཞེ་ས། (Zhebsa): &nbsp;</h4>
+                        <span style="font-size: medium;"> {{search_zhesa.zhebsa_word}} </span>
+                    </div>
+                    {% if search_zhesa.z_phrase %}
+                    <hr>
+                    <div class="input-group">
+                        <h4>རྗོད་ཚིག (Phrases): &nbsp;</h4>
+                        <span style="font-size: medium;"> {{ search_zhesa.z_phrase}} </span>
+                    </div>
+                    {% endif %} {% if search_zhesa.audio %}
+                    <hr>
+                    <div class="input-group">
+                        <h4>ཞེ་སའི་རྗོད་སྒྲ (Pronunciation): &nbsp;</h4>{{search_zhesa.audio.url}}
+                        <span>
+                            <audio controls>
+                                <source src="/media/{{search_zhesa.audio}}" type="audio/ogg">
+                                <source src="/media/{{search_zhesa.audio}}" type="audio/mpeg">
+                              Your browser does not support the audio element.
+                            </audio>
+                        </span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %} {% endif %} {% if day_zhebsa %}
+<div class="row">
+    <div class="col-md-8 mx-auto mt-auto">
+        <div class="card shadow">
+            <div class="card-header">
+                <h4 class="card-title text-center">
+                    ཞེ་སའི་རྫོད་ཚིག
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="container mx-auto">
+                    <div class="input-group">
+                        <h4>ཞེ་ས། (Zhebsa): &nbsp;</h4>
+                        <span style="font-size: medium;"> {{ day_zhebsa.zhebsa_word }} </span>
+                    </div>
+                    {% if day_phalkay %}
+                    <hr>
+                    <div class="input-group">
+                        <h4>ཕལ་སྐད། (Dzongkha): &nbsp;</h4>
+                        {% for day_phalkay in day_phalkay %}
+                        <span style="font-size: medium;"> {{day_phalkay.phelkay__phelkay_word}} &nbsp;</span> {% endfor %}
+                    </div>
+                    {% endif %} {% if day_zhebsa.z_phrase %}
+                    <hr>
+                    <div class="input-group">
+                        <h4>ཞེ་སའི་རྗོད་ཚིག (Zhebsa Phrases): &nbsp;</h4>
+                        <span style="font-size: medium;"> {{ day_zhebsa.z_phrase}} </span>
+                    </div>
+                    {% endif %} {% if day_zhebsa.audio %}
+                    <hr>
+                    <div class="input-group">
+                        <h4>ཞེ་སའི་རྗོད་སྒྲ (Pronunciation): &nbsp;</h4>
+                        <span>
+                            <audio controls>
+                                <source src="{{day_zhebsa.audio.url}}" type="audio/ogg">
+                                <source src="{{day_zhebsa.audio.url}}" type="audio/mpeg">
+                              Your browser does not support the audio element.
+                            </audio>
+                        </span>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %} {% if noresult %}
+<div class="row">
+    <div class="col-md-8 mx-auto mt-auto">
+        <div class="card shadow">
+            <div class="card-header">
+                <h4 class="card-title text-center">
+                    {{q}}
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="container mx-auto">
+                    <div class="input-group">
+                        <h4>Result not found</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %} {% endblock %}

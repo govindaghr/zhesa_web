@@ -1,0 +1,46 @@
+{% extends '../partials/base.html' %}
+{% load static %}
+{% block content %}
+
+<main class="flex-shrink-0">
+    <!-- Team members section-->
+    <section class="py-3 bg-light">
+        <div class="container px-5 my-5">
+            <div class="text-center">
+                <h2 class="fw-bolder">Our team</h2>
+                <p class="lead fw-normal text-muted mb-5">Dedicated to work on culture and technology</p>
+            </div>
+            <div class="row gx-5 row-cols-1 row-cols-sm-2 row-cols-xl-4 justify-content-center">
+                <div class="col mb-5 mb-5 mb-xl-0">
+                    <div class="text-center">
+                        <img class="img-fluid rounded-circle mb-4 px-4" src='{% static "images/profile/pemag.jpg" %}' alt="Lecture at College Of Science and Technology" width="300"/>
+                        <h5 class="fw-bolder">Pema Galey</h5>
+                        <div class="fst-italic text-muted">Project Guide &amp; Advisor</div>
+                    </div>
+                </div>
+                <div class="col mb-5 mb-5 mb-xl-0">
+                    <div class="text-center">
+                        <img class="img-fluid rounded-circle mb-4 px-4" src='{% static "images/profile/govin.jpg" %}' alt="Student at College Of Science and Technology" width="300" />
+                        <h5 class="fw-bolder">Govinda Ghimeray</h5>
+                        <div class="fst-italic text-muted">Developer</div>
+                    </div>
+                </div>
+                <div class="col mb-5 mb-5 mb-sm-0">
+                    <div class="text-center">
+                        <img class="img-fluid rounded-circle mb-4 px-4" src='{% static "images/profile/sonam.jpg" %}' alt="Student at College Of Science and Technology" width="300" />
+                        <h5 class="fw-bolder">Sonam Lhamo</h5>
+                        <div class="fst-italic text-muted">Developer</div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="text-center">
+                        <img class="img-fluid rounded-circle mb-4 px-4" src='{% static "images/profile/karma.jpg" %}' alt="Student at College Of Science and Technology" width="300" />
+                        <h5 class="fw-bolder">Karma Tenzin</h5>
+                        <div class="fst-italic text-muted">Developer</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{%endblock %}

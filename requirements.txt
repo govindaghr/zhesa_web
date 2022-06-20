@@ -1,0 +1,8 @@
+django==3.2.9
+django-crispy-forms
+crispy-bootstrap5
+djangorestframework
+django-filter
+gunicorn
+whitenoise
+markdown
