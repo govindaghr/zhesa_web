@@ -2,7 +2,7 @@
 
 #### to run on local host, 
 ```
-git clone https://github.com/karmatenzi/dzongkha.git
+git clone https://github.com/govindaghr/zhesa_web.git
 pipenv shell
 pip install -r requirements.txt
 
